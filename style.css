@@ -1,0 +1,119 @@
+body{
+
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f7fb;
+
+}
+
+.topo{
+
+    background:linear-gradient(135deg,#4f8cff,#7b5cff);
+    color:white;
+    padding:40px;
+    text-align:center;
+
+}
+
+.topo h1{
+
+    margin:0;
+    font-size:42px;
+
+}
+
+.topo p{
+
+    margin-top:10px;
+    font-size:18px;
+
+}
+
+.menu{
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:20px;
+    background:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+.menu button{
+
+    background:#4f8cff;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:12px 20px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.menu button:hover{
+
+    background:#356fe0;
+    transform:translateY(-2px);
+
+}
+
+.conteudo{
+
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+
+}
+
+.resumo{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+
+}
+
+.card{
+
+    background:white;
+    width:250px;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    text-align:center;
+
+}
+
+.card h3{
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    font-size:28px;
+    font-weight:bold;
+
+}
+
+input,
+select{
+
+    width:280px;
+    padding:12px;
+    margin:8px;
+    border-radius:10px;
+    border:1px solid #d9d9d9;
+    font-size:16px;
+
+}
+
+button{
+
+    font-size:16px;
+
+}

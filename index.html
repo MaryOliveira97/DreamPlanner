@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+       
+    <title>DreamPlanner</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+<header class="topo">
+
+    <h1>🤍 DreamPlanner</h1>
+
+    <p>Organize hoje. Conquiste amanhã.</p>
+
+</header>
+
+<nav class="menu">
+
+    <button onclick="mostrarAba('dashboard')">
+        🏠 Dashboard
+    </button>
+
+    <button onclick="mostrarAba('financas')">
+        💰 Finanças
+    </button>
+
+    <button onclick="mostrarAba('objetivos')">
+        🎯 Objetivos
+    </button>
+
+    <button onclick="mostrarAba('planejamento')">
+        📅 Planejamento
+    </button>
+
+</nav>
+
+<main class="conteudo">
+
+
+        <div id="dashboard">
+
+            <h2 id = "saudacao">Olá!</h2>
+            <p id ="dataAtual"></p>
+
+            <p> Seja bem vindo ao <strong>DreamPlanner</strong></p>
+            <p id="fraseMotivacional"></p>
+
+            <hr>
+
+            <h3> 💰 Saldo Atual</h3>
+            <p id="saldoAtual"> R$ 0,00</p>
+
+            <div class="resumo">
+
+    <div class="card saldo-card">
+       
+        <h3>💰 Saldo</h3>
+        <p id="saldoDashboard">R$ 0,00</p>
+    
+    </div>
+
+    <div class="card entradas-card">
+        
+        <h3>🟢 Entradas</h3>
+        <p id="entradasDashboard">R$ 0,00</p>
+    
+    </div>
+
+    <div class="card saidas-card">
+        
+        <h3>🔴 Saídas</h3>
+        <p id="saidasDashboard">R$ 0,00</p>
+
+        </div>
+        </div>
+        </div>
+
+
+        <div id="financas">
+
+    <h2>📊 Resumo Financeiro</h2>
+
+    <p>🟢 Entradas</p>
+
+    <div id="barraEntradas">
+        <div id="progressoEntradas"></div>
+    </div>
+
+    <p>🔴 Saídas</p>
+
+    <div id="barraSaidas">
+        <div id="progressoSaidas"></div>
+    </div>
+
+    <h2>📝 Movimentações</h2>
+
+    <input type="text" id="descricao" placeholder="Descrição">
+
+    <input type="number" id="valor" placeholder="Valor">
+
+    <br><br>
+
+    <button onclick="adicionarEntrada()">
+        + Entrada
+    </button>
+
+    <button onclick="adicionarSaida()">
+        - Saída
+    </button>
+
+    <div id="movimentacoes"></div>
+
+</div>
+
+
+      <div id="objetivos">
+
+
+       <h2>🎯 Meu Objetivo</h2>
+
+       <input
+       type="text"
+       id="nomeMeta"
+       placeholder="Ex: Fazer uma viagem"
+      
+       >
+
+       <input
+       type="number"
+       id="valorMeta"
+       placeholder="Quanto custa esse sonho?"
+      
+       >
+
+       <button onclick="criarMeta()">
+        Criar Meta
+       </button>
+
+       <div id="meta"></div>
+
+    
+
+       <hr>
+
+       <h2>📈 Sua Jornada</h2>
+
+
+       <input
+
+       type="number"
+       id="economiaMensal"
+       placeholder="Quanto consegue guardar por mês?"
+        >
+
+        <button onclick="calcularForecast()">
+           
+            Calcular
+
+        </button>
+
+        <div id="forecast"></div>
+
+            <div id="barraMetaConteiner">
+
+           <div id="progressoMeta"></div>
+
+           </div>
+
+           </div>
+
+          <div id="planejamento">
+
+    <h2>📆 Planejamento</h2>
+
+    <input
+    type="text"
+    id="tarefa"
+    placeholder="Digite uma tarefa"
+    />
+
+    <select id="prioridadeTarefa">
+        <option value="Baixa">🟢 Baixa</option>
+        <option value="Média">🟡 Média</option>
+        <option value="Alta">🔴 Alta</option>
+    </select>
+
+    <input
+    type = "date"
+    id="dataTarefa"
+
+    />
+
+    <button onclick="adicionarTarefa()">
+        Adicionar
+    </button>
+
+    <div id="listaTarefas"></div>
+
+    <p>Adicione tarefas que vão te aproximar do seu futuro ✨</p>
+
+    </div>
+
+    </main>
+
+   <script src="script.js"></script>
+  
+    </body>
+
+    </html>
