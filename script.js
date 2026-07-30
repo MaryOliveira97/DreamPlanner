@@ -66,14 +66,11 @@ function carregarDados() {
         document.getElementById("movimentacoes").innerHTML = listaMovimentacoes;
 
        
-        renderizarTarefas();
-        atualizarBarras();
-        atualizarMeta();
+        renderizarMovimentacoes();
     }
 }
 function mostrarAba(aba) {
     document.getElementById("dashboard").style.display = "none";
-    document.getElementById("financas").style.display = "none";
     document.getElementById("objetivos").style.display = "none";
     document.getElementById("planejamento").style.display = "none";
 
@@ -104,8 +101,7 @@ let valor = document.getElementById("valor").value;
         sinal: "+"
     });
 
-    document.getElementById("movimentacoes").innerHTML +=
-        "<p>🟢 "  + descricao + " + " + formatarMoeda(valor) + "</p>";
+    renderizarMovimentacoes();
 
     document.getElementById("descricao").value = "";
     document.getElementById("valor").value = "";
@@ -140,8 +136,7 @@ function adicionarSaida() {
         sinal: "-"
     });
 
-    document.getElementById("movimentacoes").innerHTML +=
-        "<p>🔴 " + descricao + " - " + formatarMoeda(valor) + "</p>";
+    renderizarMovimentacoes();
 
     document.getElementById("descricao").value = "";
     document.getElementById("valor").value = "";
@@ -423,25 +418,51 @@ function carregarDashboard(){
 
 }
 
-function excluirMovimentacao(index) {
+
+function renderizarMovimentacoes() {
+
+    let html = "";
+
+    movimentacoes.forEach(function(item, index){
+
+        html += `
+        <p>
+            ${item.icone}
+            ${item.descricao}
+            ${item.sinal}
+            ${formatarMoeda(Number(item.valor))}
+            <button onclick="excluirMovimentacao(${index})">🗑️</button>
+        </p>
+        `;
+
+    });
+
+    document.getElementById("movimentacoes").innerHTML = html;
+}
+
+function excluirMovimentacao(index){
 
     let item = movimentacoes[index];
 
-    if (item.tipo === "entrada") {
+    if(item.tipo === "entrada"){
         saldo -= Number(item.valor);
         totalEntradas -= Number(item.valor);
-    } else {
+    }else{
         saldo += Number(item.valor);
         totalSaidas -= Number(item.valor);
     }
 
-    movimentacoes.splice(index, 1);
+    movimentacoes.splice(index,1);
 
+    document.getElementById("saldoDashboard").innerHTML = formatarMoeda(saldo);
+    document.getElementById("entradasDashboard").innerHTML = formatarMoeda(totalEntradas);
+    document.getElementById("saidasDashboard").innerHTML = formatarMoeda(totalSaidas);
+
+    atualizarBarras();
+    atualizarMeta();
     salvarDados();
-    carregarDados();
-    carregarDashboard();
+    renderizarMovimentacoes();
 }
-
 mostrarAba("dashboard");
 carregarDados();
 carregarDashboard();
