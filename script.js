@@ -48,9 +48,20 @@ function carregarDados() {
 
         let listaMovimentacoes = "";
 
-        movimentacoes.forEach(function(item) {
-            listaMovimentacoes += `<p>${item.icone} ${item.descricao} ${item.sinal} ${formatarMoeda(item.valor)}</p>`;
-        });
+      movimentacoes.forEach(function(item, index) {
+
+    listaMovimentacoes += `
+        <p>
+            ${item.icone} ${item.descricao}
+            ${item.sinal}
+            ${formatarMoeda(Number(item.valor))}
+            <button onclick="excluirMovimentacao(${index})">
+                🗑️
+            </button>
+        </p>
+    `;
+
+});
 
         document.getElementById("movimentacoes").innerHTML = listaMovimentacoes;
 
