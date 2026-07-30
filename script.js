@@ -412,6 +412,25 @@ function carregarDashboard(){
 
 }
 
+function excluirMovimentacao(index) {
+
+    let item = movimentacoes[index];
+
+    if (item.tipo === "entrada") {
+        saldo -= Number(item.valor);
+        totalEntradas -= Number(item.valor);
+    } else {
+        saldo += Number(item.valor);
+        totalSaidas -= Number(item.valor);
+    }
+
+    movimentacoes.splice(index, 1);
+
+    salvarDados();
+    carregarDados();
+    carregarDashboard();
+}
+
 mostrarAba("dashboard");
 carregarDados();
 carregarDashboard();
